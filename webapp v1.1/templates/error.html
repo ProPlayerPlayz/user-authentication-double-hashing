@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Dream Bank</title>
+    <style>
+        /* Exo thin font from Google. */
+        @import url(https://fonts.googleapis.com/css?family=Exo:100);
+
+        body {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+            animation: bg-scrolling 0.92s infinite;
+            animation-timing-function: linear;
+            color: #333;
+            font: 400 16px/1.5 'Exo', 'ubuntu', 'segoe ui', 'helvetica', 'arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body::before {
+            content: "DREAM BANK"; 
+            font-size: 2rem; 
+            font-weight: bold;
+            font-family: "Lucida Handwriting";
+            color: #007BFF;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1, p {
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-family: "Georgia";
+            color: #ff0000;
+            margin-bottom: 40px;
+        }
+
+        button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        @keyframes bg-scrolling {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ alert }}</h1>
+        <p>{{ message }}</p>
+        <button onclick="redirectToSignIn()">Return to Home Page</button>
+    </div>
+
+    <script>
+        // JavaScript function to redirect to another page after a delay
+        function redirectToSignIn() {
+            window.location.href = "/home"; // Replace with the actual URL of your banking page
+        }
+    </script>
+</body>
+</html>

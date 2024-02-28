@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Dream Bank</title>
+    <style>
+        /* Cool infinite background scrolling animation. */
+        /* Exo thin font from Google. */
+        @import url(https://fonts.googleapis.com/css?family=Exo:100);
+
+        /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+        body {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+            animation: bg-scrolling 0.92s infinite;
+            animation-timing-function: linear;
+            color: #999;
+            font: 400 16px/1.5 'Exo', 'ubuntu', 'segoe ui', 'helvetica', 'arial', sans-serif;
+            text-align: center;
+        }
+
+        body::before {
+            content: "DREAM BANK"; 
+            font-size: 3rem; 
+            font-weight: bold;
+            font-family: "Lucida Handwriting";
+            margin-bottom: 20px;
+            display: block;
+            color: #007BFF;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        .custom-statement {
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-family: "Georgia";
+            color: rgba(30, 29, 29, 0.8);
+            margin-bottom: 20px;
+        }
+
+        section {
+            max-width: 600px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        @keyframes bg-scrolling {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        body.dark-mode {
+            background: url("https://usagif.com/wp-content/uploads/gifs/starfall-gif-46.gif") fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            animation:none;
+        }
+
+        body.dark-mode::before {
+            color: #fff;
+        }
+
+        body.dark-mode .custom-statement {
+            color: #fff;
+        }
+
+        body.dark-mode h2,
+        body.dark-mode p,
+        body.dark-mode label {
+            color: #fff;
+        }
+
+        body.dark-mode input,
+        body.dark-mode textarea {
+            background: #333;
+            color: #fff;
+        }
+
+        body.dark-mode button {
+            background: #fff;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <p class="custom-statement">Contact Us</p>
+        </header>
+
+        <section>
+            <h2>Contact Information</h2>
+            <p>If you have any questions or need assistance, please feel free to contact us.</p>
+            <p>Email: contact@dreambank.com</p>
+            <p>Phone: 123-456-7890</p>
+        </section>
+
+        <section>
+            <h2>Contact Form</h2>
+            <form method="POST" action="/contact_submit_form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌞/🌚</button>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>

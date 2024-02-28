@@ -1,0 +1,25 @@
+<!-- FILEPATH: /c:/Users/sakth/OneDrive/Desktop/crypto mid term project/learningflask/templates/home.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home | Dream Bank</title>
+</head>
+<body>
+	<!-- Date and Time Display -->
+	<div>
+		<p>Current Date and Time: {{ datetime }}</p>
+	</div>
+
+	<!-- Bank Name -->
+	<h1>Dream Bank</h1>
+
+	<!-- Navigation Buttons -->
+	<div>
+		<a href="{{ url_for('home') }}"><button>Home</button></a>
+		<a href="{{ url_for('signin') }}"><button>SignIn</button></a>
+		<a href="{{ url_for('signup') }}"><button>SignUp</button></a>
+		<a href="{{ url_for('about') }}"><button>About</button></a>
+	</div>
+</body>
+</html>

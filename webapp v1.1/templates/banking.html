@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking - Dream Bank</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            transition: background-color 0.5s;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.5s;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            color: #000; /* Black font for table content */
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            color: rgb(127, 127, 127);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        select, input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        .moon {
+            color: #f1c40f;
+        }
+        .dark-mode {
+            background: url("https://usagif.com/wp-content/uploads/gifs/starfall-gif-46.gif") fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        .dark-mode .container {
+            background: rgba(0, 0, 0, 0.8); /* Adjust the background color or transparency as needed */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Adjust the box shadow color or transparency as needed */
+        }
+
+        .dark-mode .container h1 {
+    color: #fff; /* White color for heading during dark mode */
+        }
+
+        .dark-mode .container table, .dark-mode .container th, .dark-mode .container td {
+            border-color: rgba(255, 255, 255, 0.5); /* Adjust the border color or transparency as needed */
+        }
+
+        .dark-mode .dark-mode-toggle {
+            background: #fff;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bank Account Details</h1>
+        <p>Welcome, <strong>{{ username }}</strong></p>
+        <p>Account Balance: ${{ balance }}</p>
+
+        <h2>Transaction History:</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Transaction Type</th>
+                <th>Amount</th>
+            </tr>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.type }}</td>
+                <td>${{ transaction.amount }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Make a Transaction:</h2>
+        <form method="POST">
+            <label for="operation">Operation:</label>
+            <select name="operation" id="operation">
+                <option value="deposit">Deposit</option>
+                <option value="withdraw">Withdraw</option>
+            </select>
+            <br>
+            <label for="amount">Amount:</label>
+            <input type="text" name="amount" id="amount">
+            <br>
+
+            <!-- Hidden -->
+            <input type="hidden" name="banking_csrf_token" value="{{ banking_csrf_token }}">
+            <input type="hidden" name="auth_time" value="{{ auth_time }}">
+            
+            <div class="button-container">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <!-- Logout button -->
+        <form method="POST" action="/logout">
+            <div class="button-container">
+                <button type="submit" style="background-color: #f44336;">Logout</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">🌞/🌚</div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.container').classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>

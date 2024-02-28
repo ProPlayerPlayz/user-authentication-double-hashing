@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Dream Bank</title>
+    <style>
+        /* Cool infinite background scrolling animation. */
+        /* Exo thin font from Google. */
+        @import url(https://fonts.googleapis.com/css?family=Exo:100);
+
+        /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+        body {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+            animation: bg-scrolling 0.92s infinite;
+            animation-timing-function: linear;
+            color: #999;
+            font: 400 16px/1.5 'Exo', 'ubuntu', 'segoe ui', 'helvetica', 'arial', sans-serif;
+            text-align: center;
+        }
+
+        body::before {
+            content: "DREAM BANK"; 
+            font-size: 10rem; 
+            font-weight: bold;
+            font-family: "Lucida Handwriting";
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .custom-statement {
+            font-size: 2rem;
+            font-weight: 400;
+            font-style: normal;
+            font-family: "Georgia";
+            color: rgba(30, 29, 29, 0.466);
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            color: #00ff6a;
+        }
+
+        p {
+            font-size: 2rem;
+            font-weight: 400;
+            font-style: normal;
+            font-family: "Georgia";
+            color: rgba(30, 29, 29, 0.466);
+            margin-bottom: 60px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        @keyframes bg-scrolling {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+    </style>
+    
+<body>
+    <h1>Success!</h1>
+    <h3>Entering Banking Page...</h3>
+    <script>
+        // JavaScript function to redirect to another page after a delay
+        function redirectToBanking() {
+            setTimeout(function() {
+                window.location.href = "/banking"; // Replace with the actual URL of your banking page
+            }, 1000); // Delay in milliseconds (e.g., 5000 milliseconds = 5 seconds)
+        }
+    
+        // Call the function when the page loads
+        window.onload = redirectToBanking;
+    </script>
+    
+    
+</body>
+</html>
